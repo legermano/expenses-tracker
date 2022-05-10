@@ -1,4 +1,2 @@
-module.exports = {
-    // TODO: Load from .env file
-    secret: "legermano-secret-key"
-};
+// TODO: Load from .env file
+export const secret = "legermano-secret-key";

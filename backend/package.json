@@ -4,7 +4,7 @@
   "description": "Backend for an personal expenses tracker app",
   "main": "server.js",
   "scripts": {
-    "dev": "npx sequelize db:migrate && npx nodemon --ignore app/migrations --ignore app/seeders server.js",
+    "dev": "npx sequelize db:migrate && npx nodemon --ignore app/migrations --ignore app/seeders --exec babel-node server.js",
     "seed-all": "npx sequelize db:seed:all",
     "seed-undo": "npx sequelize db:seed:undo"
   },
@@ -30,6 +30,11 @@
     "sequelize-cli": "^6.4.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/node": "^7.17.10",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/preset-env": "^7.17.10",
     "nodemon": "^2.0.16"
   }
 }

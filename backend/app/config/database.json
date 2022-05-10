@@ -2,10 +2,10 @@
     "development": {
       "username": "postgres",
       "password": "postgres",
-      "database": "expenses-tracker",
+      "database": "expenses_tracker",
       "host": "localhost",
       "dialect": "postgres",
-      "port": "5433",
+      "port": "5432",
       "pool": {
         "max": 5,
         "min": 0,
@@ -16,7 +16,7 @@
     "test": {
       "username": "postgres",
       "password": "postgres",
-      "database": "expenses-tracker",
+      "database": "expenses_tracker",
       "host": "localhost",
       "dialect": "postgres",
       "pool": {
@@ -29,7 +29,7 @@
     "production": {
       "username": "postgres",
       "password": "postgres",
-      "database": "expenses-tracker",
+      "database": "expenses_tracker",
       "host": "localhost",
       "dialect": "postgres",
       "pool": {
