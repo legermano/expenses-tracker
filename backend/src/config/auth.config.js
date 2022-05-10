@@ -1,2 +1,4 @@
 // TODO: Load from .env file
-export const secret = "legermano-secret-key";
+const secret = 'legermano-secret-key';
+
+export default secret;

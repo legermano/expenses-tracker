@@ -4,9 +4,11 @@
   "description": "Backend for an personal expenses tracker app",
   "main": "server.js",
   "scripts": {
-    "dev": "npx sequelize db:migrate && npx nodemon --ignore app/migrations --ignore app/seeders --exec babel-node server.js",
-    "seed-all": "npx sequelize db:seed:all",
-    "seed-undo": "npx sequelize db:seed:undo"
+    "dev": "npx sequelize db:migrate && npx nodemon --exec babel-node server.js",
+    "dev:debug": "npx sequelize db:migrate && npx nodemon --exec babel-node --inspect server.js",
+    "seed:all": "npx sequelize db:seed:all",
+    "seed:undo": "npx sequelize db:seed:undo",
+    "lint": "npx eslint --fix src --ext .js"
   },
   "keywords": [
     "node",
@@ -35,6 +37,12 @@
     "@babel/node": "^7.17.10",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
     "@babel/preset-env": "^7.17.10",
-    "nodemon": "^2.0.16"
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2"
   }
 }

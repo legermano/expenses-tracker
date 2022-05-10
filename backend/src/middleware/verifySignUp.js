@@ -1,37 +1,39 @@
-import { db } from "../models";
+import { db } from '../models';
 
-const User = db.User;
+const { User } = db;
 
-export const checkDuplicateUsernameOrEmail = (req, res, next) => {
-    // Username
+const checkDuplicateUsernameOrEmail = (req, res, next) => {
+  // Username
+  User.findOne({
+    where: {
+      username: req.body.username,
+    },
+  }).then((username) => {
+    if (username) {
+      res.status(400).send({
+        message: 'Failed! Username is already in use',
+      });
+
+      return;
+    }
+
+    // Email
     User.findOne({
-        where: {
-            username: req.body.username
-        }
-    }).then(user => {
-        if(user) {
-            res.status(400).send({
-                message: "Failed! Username is already in use"
-            });
-
-            return;
-        }
-
-        // Email
-        User.findOne({
-            where: {
-                email: req.body.email
-            }
-        }).then(user => {
-            if(user) {
-                res.status(400).send({
-                    message: "Failed! Email is already in use"
-                });
-
-                return;
-            }
-
-            next();
+      where: {
+        email: req.body.email,
+      },
+    }).then((userEmail) => {
+      if (userEmail) {
+        res.status(400).send({
+          message: 'Failed! Email is already in use',
         });
+
+        return;
+      }
+
+      next();
     });
+  });
 };
+
+export default checkDuplicateUsernameOrEmail;
