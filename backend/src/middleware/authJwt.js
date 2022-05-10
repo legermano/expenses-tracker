@@ -1,4 +1,4 @@
-import { jwt } from "jsonwebtoken"; 
+import { verify } from "jsonwebtoken";
 import * as config from "../config/auth.config";
 
 export const verifyToken = (req, res, next) => {
@@ -9,7 +9,7 @@ export const verifyToken = (req, res, next) => {
         });
     }
 
-    jwt.verify(token, config.secret, (err, decoded) => {
+    verify(token, config.secret, (err, decoded) => {
         if(err) {
             return res.status(401).send({
                 message: "Unauthorized!"
