@@ -1,5 +1,5 @@
 module.exports = {
-  async up(queryInterface, _) {
+  async up(queryInterface) {
     return queryInterface.bulkInsert(`user`, [
       {
         username: 'John Doe',
@@ -13,7 +13,7 @@ module.exports = {
     ]);
   },
 
-  async down(queryInterface, _) {
+  async down(queryInterface) {
     return queryInterface.bulkDelete(`user`, null, {});
   },
 };
