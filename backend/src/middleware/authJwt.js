@@ -1,8 +1,8 @@
 import { verify } from 'jsonwebtoken';
-import * as config from '../config/auth.config';
+import secret from '../config/auth.config';
 
 const verifyToken = (req, res, next) => {
-  const token = req.headers['x-access-token'];
+  const token = req.headers.authorization;
 
   if (!token) {
     return res.status(403).send({
@@ -10,7 +10,7 @@ const verifyToken = (req, res, next) => {
     });
   }
 
-  verify(token, config.secret, (err, decoded) => {
+  verify(token, secret, (err, decoded) => {
     if (err) {
       return res.status(401).send({
         message: 'Unauthorized!',

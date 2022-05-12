@@ -6,4 +6,5 @@ const router = new Router();
 
 export default router
   .get('/all', userController.allAccess)
-  .get('/user', [verifyToken], userController.userBoard);
+  .get('/user', [verifyToken], userController.userBoard)
+  .get('/me', [verifyToken], userController.me);

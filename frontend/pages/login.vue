@@ -13,6 +13,7 @@
                   <v-form>
                     <v-text-field
                       id="username"
+                      v-model="loginForm.username"
                       label="Username"
                       name="username"
                       prepend-icon="mdi-account"
@@ -21,6 +22,7 @@
 
                     <v-text-field
                       id="password"
+                      v-model="loginForm.password"
                       label="Password"
                       name="password"
                       prepend-icon="mdi-lock"
@@ -34,7 +36,7 @@
                   </h3>
                 </v-card-text>
                 <div class="text-center mb-3">
-                  <v-btn rounded outlined dark>
+                  <v-btn rounded outlined dark @click="login">
                     Sign In
                   </v-btn>
                 </div>
@@ -128,6 +130,25 @@ export default {
       step: 1,
       showLoginPassword: false,
       showRegisterPassword: false,
+      loginForm: {
+        username: '',
+        password: '',
+      },
+      registerForm: {
+        username: '',
+        email: '',
+        password: '',
+      }
+    }
+  },
+  methods: {
+    async login() {
+      await this.$auth.loginWith('local', {
+        data: {
+          username: this.loginForm.username,
+          password: this.loginForm.password,
+        }
+      });
     }
   }
 }

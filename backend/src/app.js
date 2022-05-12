@@ -15,7 +15,7 @@ class App {
     this.server.use(
       cors({
         // Enable CORS just for this origin
-        origin: 'http://localhost:8081',
+        origin: 'http://localhost:3000',
       })
     );
 
@@ -29,7 +29,7 @@ class App {
     this.server.use((_, res, next) => {
       res.header(
         'Access-Control-Allow-Headers',
-        'x-access-token, Origin, Content-Type, Accept'
+        'authorization, Origin, Content-Type, Accept'
       );
       next();
     });

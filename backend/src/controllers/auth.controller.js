@@ -5,7 +5,7 @@ import secret from '../config/auth.config';
 
 const { User } = db;
 
-export const signup = (req, res) => {
+export const register = (req, res) => {
   // Save User to Database
   User.create({
     username: req.body.username,
@@ -20,7 +20,7 @@ export const signup = (req, res) => {
     });
 };
 
-export const signin = (req, res) => {
+export const login = (req, res) => {
   User.findOne({
     where: {
       username: req.body.username,
@@ -38,7 +38,7 @@ export const signin = (req, res) => {
 
       if (!passwordIsValid) {
         return res.status(401).send({
-          accessToken: null,
+          token: null,
           message: 'Invalid password!',
         });
       }
@@ -51,7 +51,7 @@ export const signin = (req, res) => {
         id: user.id,
         username: user.username,
         email: user.email,
-        accessToken: token,
+        token,
       });
     })
     .catch((err) => {
