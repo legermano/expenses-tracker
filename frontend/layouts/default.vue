@@ -1,6 +1,7 @@
 <template>
   <v-app dark>
     <v-navigation-drawer
+      v-if="userLoggedIn"
       v-model="drawer"
       :mini-variant="miniVariant"
       :clipped="clipped"
@@ -27,12 +28,12 @@
         <span>&copy; {{ new Date().getFullYear() }}</span>
       </v-footer>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-app-bar v-if="userLoggedIn" :clipped-left="clipped" fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title v-text="title" />
       <v-spacer></v-spacer>
       <v-toolbar-title v-text="currentUser.username" />
-      <v-btn v-if="userLoggedIn" icon @click="logout">
+      <v-btn icon @click="logout">
         <v-icon>mdi-logout</v-icon>
       </v-btn>
     </v-app-bar>

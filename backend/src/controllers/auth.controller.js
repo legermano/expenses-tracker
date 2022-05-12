@@ -23,7 +23,7 @@ export const register = (req, res) => {
 export const login = (req, res) => {
   User.findOne({
     where: {
-      username: req.body.username,
+      email: req.body.email,
     },
   })
     .then((user) => {
