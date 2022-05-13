@@ -73,16 +73,16 @@ export default {
   },
   computed: {
     currentUser() {
-      return this.$auth.user;
+      return this.$auth.user
     },
     userLoggedIn() {
-      return this.$auth.loggedIn;
-    }
+      return this.$auth.loggedIn
+    },
   },
   methods: {
     async logout() {
-      await this.$auth.logout();
-    }
-  }
+      await this.$auth.logout()
+    },
+  },
 }
 </script>

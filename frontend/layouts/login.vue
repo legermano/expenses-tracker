@@ -12,8 +12,7 @@
 export default {
   name: 'LoginLayout',
   data() {
-    return {
-    }
+    return {}
   },
 }
 </script>

@@ -38,7 +38,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/auth-next'
+    '@nuxtjs/auth-next',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -60,16 +60,16 @@ export default {
           property: false,
         },
         endpoints: {
-          login: { url: '/auth/login', method: 'post'},
-          user: { url: '/user/me', method: 'get'},
+          login: { url: '/auth/login', method: 'post' },
+          user: { url: '/user/me', method: 'get' },
           logout: false,
-        }
+        },
       },
     },
     redirect: {
       logout: '/login',
       login: '/login',
-      home: '/'
+      home: '/',
     },
   },
 
