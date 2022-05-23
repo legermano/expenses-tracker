@@ -16,15 +16,17 @@
     "test": {
       "username": "postgres",
       "password": "postgres",
-      "database": "expenses_tracker",
+      "database": "expenses_tracker_test",
       "host": "localhost",
       "dialect": "postgres",
+      "port": "5432",
       "pool": {
         "max": 5,
         "min": 0,
         "acquire": 30000,
         "idle": 10000
-      }
+      },
+      "logging": false
     },
     "production": {
       "username": "postgres",
@@ -32,12 +34,13 @@
       "database": "expenses_tracker",
       "host": "localhost",
       "dialect": "postgres",
+      "port": "5432",
       "pool": {
         "max": 5,
         "min": 0,
         "acquire": 30000,
         "idle": 10000
-      }
+      },
+      "logging": false
     }
   }
-  

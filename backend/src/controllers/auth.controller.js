@@ -13,7 +13,7 @@ export const register = (req, res) => {
     password: bcrypt.hashSync(req.body.password, 8),
   })
     .then(() => {
-      res.status(200).send({ message: 'User was registered successfully!' });
+      res.status(201).send({ message: 'User was registered successfully!' });
     })
     .catch((err) => {
       res.status(500).send({ message: err.message });
@@ -28,7 +28,7 @@ export const login = (req, res) => {
   })
     .then((user) => {
       if (!user) {
-        return res.status(404).send({ message: 'User not found!' });
+        return res.status(401).send({ message: 'User not found!' });
       }
 
       const passwordIsValid = bcrypt.compareSync(

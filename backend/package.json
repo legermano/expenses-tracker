@@ -4,11 +4,13 @@
   "description": "Backend for an personal expenses tracker app",
   "main": "server.js",
   "scripts": {
-    "dev": "npx sequelize db:migrate && npx nodemon --exec babel-node server.js",
-    "dev:debug": "npx sequelize db:migrate && npx nodemon --exec babel-node --inspect server.js",
-    "seed:all": "npx sequelize db:seed:all",
-    "seed:undo": "npx sequelize db:seed:undo",
-    "lint": "npx eslint --fix src --ext .js"
+    "dev": "sequelize db:migrate && nodemon --exec babel-node server.js",
+    "dev:debug": "sequelize db:migrate && nodemon --exec babel-node --inspect server.js",
+    "dev:test": "sequelize db:migrate --env test && jest --watchAll --verbose",
+    "seed:all": "sequelize db:seed:all",
+    "seed:undo": "sequelize db:seed:undo",
+    "lint": "eslint --fix src --ext .js",
+    "test": "sequelize db:migrate --env test && jest --verbose --forceExit"
   },
   "keywords": [
     "node",
@@ -24,6 +26,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
+    "eslint-plugin-jest": "^26.2.2",
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.3",
@@ -38,12 +41,15 @@
     "@babel/node": "^7.17.10",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
     "@babel/preset-env": "^7.17.10",
+    "babel-jest": "^28.1.0",
     "eslint": "^8.15.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^28.1.0",
     "nodemon": "^2.0.16",
-    "prettier": "^2.6.2"
+    "prettier": "^2.6.2",
+    "supertest": "^6.2.3"
   }
 }

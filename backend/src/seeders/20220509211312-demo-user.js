@@ -4,9 +4,9 @@ module.exports = {
       {
         username: 'John Doe',
         email: 'john.doe@gmail.com',
-        // johndoe
+        // Johdo&123
         password:
-          '$2y$08$8nstDmbpDOwwoiSKKUMSjeixz0xDWrPo86LcjRJkLxw8Oe7cvaIb6',
+          '$2y$08$.9lfhjkNUQyCH2PFbgiDEu0ZQtVauCIQOmeC0klQr2g2AraxEyoO.',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
