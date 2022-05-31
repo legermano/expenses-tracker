@@ -70,7 +70,7 @@ describe('Test app authorizations - /auth', () => {
       password: 'Johndo&123',
     });
 
-    expect(res.statusCode).toEqual(401);
+    expect(res.statusCode).toEqual(404);
     expect(res.body).toEqual(
       expect.objectContaining({
         message: 'User not found!',

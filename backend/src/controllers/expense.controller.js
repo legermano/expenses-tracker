@@ -26,3 +26,43 @@ export const fetchOne = async (req, res) => {
 
   return res.status(200).send(expense);
 };
+
+export const create = async (req, res) => {
+  Expense.create({
+    userId: req.userId,
+    name: req.body.name,
+    description: req.body.description,
+    value: req.body.value,
+  })
+    .then((expense) => {
+      res.status(201).send({
+        message: 'Expense was registered successfully!',
+        expense,
+      });
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+};
+
+export const update = async (req, res) => {
+  Expense.update(
+    {
+      name: req.body.name,
+      description: req.body.description,
+      value: req.body.value,
+    },
+    {
+      where: {
+        id: req.params.id,
+        userId: req.userId,
+      },
+    }
+  )
+    .then(() => {
+      res.status(204).send();
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+};

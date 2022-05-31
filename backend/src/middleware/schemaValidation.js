@@ -3,7 +3,7 @@ const validate = (schema) => async (req, res, next) => {
     await schema.validate({
       body: req.body,
       query: req.query,
-      params: res.params,
+      params: req.params,
     });
 
     return next();
