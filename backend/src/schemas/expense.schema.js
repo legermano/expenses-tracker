@@ -8,13 +8,13 @@ const createExpenseSchema = yup.object({
       .min(5, 'Expense name must be at least 5 characteres')
       .required('Name is required'),
     description: yup.string(),
-    value: yup.number().required(),
+    value: yup.number().required('Value is required'),
   }),
 });
 
 const updateExpenseSchema = yup.object({
   params: yup.object({
-    id: yup.number().integer().positive().required(),
+    id: yup.number().integer().positive().required('Expense Id is required'),
   }),
   body: yup.object({
     name: yup

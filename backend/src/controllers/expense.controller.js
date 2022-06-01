@@ -59,8 +59,14 @@ export const update = async (req, res) => {
       },
     }
   )
-    .then(() => {
-      res.status(204).send();
+    .then((result) => {
+      const [affectedRowsNumber] = result;
+
+      if (affectedRowsNumber > 0) {
+        return res.status(204).send();
+      }
+
+      return res.status(400).send({ message: 'Could not update expense!' });
     })
     .catch((err) => {
       res.status(500).send({ message: err.message });

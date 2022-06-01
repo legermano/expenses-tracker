@@ -9,7 +9,7 @@ import * as expenseController from '../controllers/expense.controller';
 const router = new Router();
 
 export default router
-  .get('/', [verifyToken], expenseController.fetchAll)
+  .get('/all', [verifyToken], expenseController.fetchAll)
   .get('/:id', [verifyToken], expenseController.fetchOne)
   .post('/', [
     verifyToken,
