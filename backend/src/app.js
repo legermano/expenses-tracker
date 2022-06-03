@@ -12,12 +12,7 @@ class App {
   }
 
   middlewares() {
-    this.server.use(
-      cors({
-        // Enable CORS just for this origin
-        origin: ['http://localhost:3000', 'http://localhost:80'],
-      })
-    );
+    this.server.use(cors());
 
     // Parse requests of content-type - application/json
     this.server.use(bodyParser.json());
