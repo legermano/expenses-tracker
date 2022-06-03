@@ -10,7 +10,10 @@
     "seed:all": "sequelize db:seed:all",
     "seed:undo": "sequelize db:seed:undo",
     "lint": "eslint --fix src --ext .js",
-    "test": "sequelize db:migrate --env test && jest --verbose --forceExit"
+    "test": "sequelize db:migrate --env test && jest --verbose --forceExit",
+    "clean": "rm -rf ./dist && mkdir dist",
+    "build": "npm run clean && babel server.js --out-dir dist && babel ./src --out-dir dist/src --copy-files",
+    "start": "sequelize db:migrate --env production && NODE_ENV=production node ./dist/server.js"
   },
   "keywords": [
     "node",

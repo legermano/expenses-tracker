@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "${FRONTEND_EXTERNAL_PORT}:3000"
+
+  backend:
+    container_name: backend
+    build:
+      context: ./backend
+    depends_on:
+      - db
+    ports:
+      - "${BACKEND_EXTERNAL_PORT}:3001"
+    environment:
+      - NODE_ENV=${NODE_ENV}
+    networks:
+      - postgres-network
+
+  db:
+    container_name: db
+    image: postgres
+    environment:
+      POSTGRES_USER: "${DATABASE_USERNAME}"
+      POSTGRES_PASSWORD: "${DATABASE_PASSWORD}"
+      POSTGRES_DB: "${DATABASE_NAME}"
+    ports:
+      - "${DATABASE_EXTERNAL_PORT}:5432"
+    volumes:
+      - ./docker/volumes/data:/var/lib/postgresql/data
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network:
+    driver: bridge

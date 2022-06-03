@@ -15,7 +15,7 @@ class App {
     this.server.use(
       cors({
         // Enable CORS just for this origin
-        origin: 'http://localhost:3000',
+        origin: ['http://localhost:3000', 'http://localhost:80'],
       })
     );
 
