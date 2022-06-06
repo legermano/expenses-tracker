@@ -27,7 +27,7 @@ describe('Test app authorizations - /auth', () => {
     expect(res.statusCode).toEqual(400);
     expect(res.body).toEqual(
       expect.objectContaining({
-        message: 'Email is already in use',
+        message: 'Email is already in use!',
       })
     );
   });
@@ -42,7 +42,7 @@ describe('Test app authorizations - /auth', () => {
     expect(res.body).toEqual(
       expect.objectContaining({
         type: 'ValidationError',
-        message: expect.any(String),
+        message: 'Password is required',
       })
     );
   });

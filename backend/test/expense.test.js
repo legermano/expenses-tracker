@@ -4,7 +4,7 @@ import app from '../src/app';
 let authorization = null;
 let newExpenseId = null;
 
-describe('Test expenses endpoint - /expenses', () => {
+describe('Test expenses endpoint - /expense', () => {
   beforeAll(async () => {
     const res = await request(app).post('/auth/login').send({
       email: 'john.doe@gmail.com',
