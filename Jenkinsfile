@@ -33,6 +33,7 @@ pipeline {
                                     sh 'while ! PGPASSWORD=${PG_PASSWORD} PGHOST=db PGDATABASE=${PG_DATABASE} PGUSER=${PG_USER} pg_isready; do sleep 1; done'
                                 }
                                 docker.image('node:lts-alpine').inside("--link ${c.id}:localhost") {
+                                    sh 'npm install'
                                     sh 'npm test'
                                 }
                             }
