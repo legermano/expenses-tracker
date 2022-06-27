@@ -60,7 +60,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sshagent(credentials: ['vm-univates-key']) {
-                    sh 'ssh -o StrictHostKeyChecking=no -l univates 177.44.248.95 whoami'
+                    sh 'ssh -o StrictHostKeyChecking=no -l univates 177.44.248.95 cd projects/expenses-tracker && git pull origin master && docker-compose build && docker-compose up -d'
                 }
             }
         }
