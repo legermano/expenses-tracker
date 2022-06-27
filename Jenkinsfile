@@ -11,7 +11,7 @@ pipeline {
             steps {
                 dir("backend") {
                     sh 'npm install'
-                    sh 'npm build'
+                    sh 'npm run build'
                 }
             }
         }
@@ -35,7 +35,7 @@ pipeline {
                                 }
                                 docker.image('node:lts-alpine').inside("--link ${c.id}:db") {
                                     sh 'npm install'
-                                    sh 'npm test'
+                                    sh 'npm run test'
                                 }
                             }
                         }
@@ -53,7 +53,7 @@ pipeline {
             steps {
                 dir("frontend") {
                     sh 'npm install'
-                    sh 'npm build'
+                    sh 'npm run build'
                 }
             }
         }
