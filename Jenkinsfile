@@ -11,6 +11,7 @@ pipeline {
             steps {
                 dir("backend") {
                     sh 'npm install'
+                    sh 'npm build'
                 }
             }
         }
@@ -39,6 +40,20 @@ pipeline {
                             }
                         }
                     }
+                }
+            }
+        }
+        stage('Frontend -> Build') {
+            agent {
+                docker {
+                    image 'node:lts-alpine'
+                    args '-p 3000:3000'
+                }
+            }
+            steps {
+                dir("frontend") {
+                    sh 'npm install'
+                    sh 'npm build'
                 }
             }
         }
