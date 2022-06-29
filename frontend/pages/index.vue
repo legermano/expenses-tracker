@@ -11,7 +11,9 @@
         </v-card-title>
         <v-card-text>
           <p>
-            This is a Jenkins Pipeline test
+            This is a Jenkins Pipeline test!
+            <br>
+            It just works
           </p>
           <hr class="my-3" />
         </v-card-text>
